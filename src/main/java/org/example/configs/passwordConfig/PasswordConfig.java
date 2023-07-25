@@ -1,9 +1,7 @@
-package org.example.model.passwordGenerator.password;
+package org.example.model.passwordGenerator.passwordConfig;
 
-public interface Password {
+public interface PasswordConfig {
     String getPasswordProperties();
-
-    String getPassword();
 
     void setPassLength(int passLength);
 
@@ -14,8 +12,6 @@ public interface Password {
     void setNumbers(boolean numbers);
 
     void setSpecialSymbols(boolean specialSymbols);
-
-    void createPassword(String password);
 
     int getPassLength();
 

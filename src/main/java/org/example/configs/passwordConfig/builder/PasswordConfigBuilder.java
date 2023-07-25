@@ -1,14 +1,13 @@
-package org.example.model.passwordGenerator.password.builder;
-import org.example.model.passwordGenerator.Generator;
-import org.example.model.passwordGenerator.password.Password;
+package org.example.model.passwordGenerator.passwordConfig.builder;
+import org.example.model.passwordGenerator.passwordConfig.PasswordConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PasswordBuilder {
+public class PasswordConfigBuilder {
     @Autowired
-    private Password password;
+    private PasswordConfig password;
     @Value("${passLength}")
     private int passLength;
     @Value("${lowerCaseLetters}")
@@ -20,32 +19,32 @@ public class PasswordBuilder {
     @Value("${specialSymbols}")
     private boolean specialSymbols;
 
-    public PasswordBuilder setPassLength(int passLength) {
+    public PasswordConfigBuilder setPassLength(int passLength) {
         this.passLength = passLength;
         return this;
     }
 
-    public PasswordBuilder setLowerCaseLetters(boolean lowerCaseLetters) {
+    public PasswordConfigBuilder setLowerCaseLetters(boolean lowerCaseLetters) {
         this.lowerCaseLetters = lowerCaseLetters;
         return this;
     }
 
-    public PasswordBuilder setUpperCaseLetters(boolean upperCaseLetters) {
+    public PasswordConfigBuilder setUpperCaseLetters(boolean upperCaseLetters) {
         this.upperCaseLetters = upperCaseLetters;
         return this;
     }
 
-    public PasswordBuilder setNumbers(boolean numbers) {
+    public PasswordConfigBuilder setNumbers(boolean numbers) {
         this.numbers = numbers;
         return this;
     }
 
-    public PasswordBuilder setSpecialSymbol(boolean specialSymbol) {
+    public PasswordConfigBuilder setSpecialSymbol(boolean specialSymbol) {
         this.specialSymbols = specialSymbol;
         return this;
     }
 
-    public Password build() {
+    public PasswordConfig build() {
         password.setPassLength(passLength);
         password.setLowerCaseLetters(lowerCaseLetters);
         password.setUpperCaseLetters(upperCaseLetters);
