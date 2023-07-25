@@ -1,5 +1,5 @@
-package org.example.model.passwordGenerator.passwordConfig.builder;
-import org.example.model.passwordGenerator.passwordConfig.PasswordConfig;
+package org.example.configs.passwordConfig.builder;
+import org.example.configs.passwordConfig.PasswordConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class PasswordConfigBuilder {
     @Autowired
-    private PasswordConfig password;
+    private PasswordConfig config;
     @Value("${passLength}")
     private int passLength;
     @Value("${lowerCaseLetters}")
@@ -44,12 +44,11 @@ public class PasswordConfigBuilder {
         return this;
     }
 
-    public PasswordConfig build() {
-        password.setPassLength(passLength);
-        password.setLowerCaseLetters(lowerCaseLetters);
-        password.setUpperCaseLetters(upperCaseLetters);
-        password.setNumbers(numbers);
-        password.setSpecialSymbols(specialSymbols);
-        return password;
+    public void build() {
+        config.setPassLength(passLength);
+        config.setLowerCaseLetters(lowerCaseLetters);
+        config.setUpperCaseLetters(upperCaseLetters);
+        config.setNumbers(numbers);
+        config.setSpecialSymbols(specialSymbols);
     }
 }

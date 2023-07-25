@@ -1,9 +1,7 @@
 package org.example;
-
 import org.example.model.passwordGenerator.PasswordGenerator;
-import org.example.model.passwordGenerator.passwordConfig.PasswordConfig;
-import org.example.model.passwordGenerator.passwordConfig.builder.PasswordConfigBuilder;
-import org.example.model.springconfig.PasswordGeneratorConfig;
+import org.example.configs.passwordConfig.builder.PasswordConfigBuilder;
+import org.example.configs.springconfig.PasswordGeneratorConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {

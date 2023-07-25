@@ -1,4 +1,4 @@
-package org.example.model.passwordGenerator.passwordConfig;
+package org.example.configs.passwordConfig;
 
 public interface PasswordConfig {
     String getPasswordProperties();

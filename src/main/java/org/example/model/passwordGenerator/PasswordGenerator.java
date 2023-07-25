@@ -1,6 +1,6 @@
 package org.example.model.passwordGenerator;
 
-import org.example.model.passwordGenerator.passwordConfig.PasswordConfig;
+import org.example.configs.passwordConfig.PasswordConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 @Component
 public class PasswordGenerator implements Generator {
     @Autowired
-    private PasswordConfig password;
+    private PasswordConfig config;
     @Value("${lowerCaseLettersArr}")
     private String lowerCaseLetters;
     @Value("${upperCaseLettersArr}")
@@ -28,24 +28,24 @@ public class PasswordGenerator implements Generator {
         List<Character> characters = new ArrayList<>();
         StringBuilder allCharacters = new StringBuilder();
 
-        if (password.getLowerCaseLetters()) {
+        if (config.getLowerCaseLetters()) {
             characters.add(getRandomCharacter(lowerCaseLetters));
             allCharacters.append(lowerCaseLetters);
         }
-        if (password.getUpperCaseLetters()) {
+        if (config.getUpperCaseLetters()) {
             characters.add(getRandomCharacter(upperCaseLetters));
             allCharacters.append(upperCaseLetters);
         }
-        if (password.getNumbers()) {
+        if (config.getNumbers()) {
             characters.add(getRandomCharacter(numbers));
             allCharacters.append(numbers);
         }
-        if (password.getSpecialSymbols()) {
+        if (config.getSpecialSymbols()) {
             characters.add(getRandomCharacter(specialSymbols));
             allCharacters.append(specialSymbols);
         }
 
-        while (characters.size() < password.getPassLength()) {
+        while (characters.size() < config.getPassLength()) {
             characters.add(getRandomCharacter(allCharacters.toString()));
         }
 
@@ -55,6 +55,9 @@ public class PasswordGenerator implements Generator {
     }
 
     private char getRandomCharacter(String characters) {
+        if (characters.length() == 0) {
+            return '\0';
+        }
         return characters.charAt(random.nextInt(characters.length()));
     }
 

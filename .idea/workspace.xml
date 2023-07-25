@@ -7,8 +7,15 @@
     <list default="true" id="cd5f585f-1541-4256-b7b6-ebac14a816f1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/configs/passwordConfig/PasswordConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/configs/passwordConfig/PasswordConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/configs/passwordConfig/PasswordConfigDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/configs/passwordConfig/PasswordConfigDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/configs/passwordConfig/builder/PasswordConfigBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/configs/passwordConfig/builder/PasswordConfigBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/configs/springconfig/PasswordGeneratorConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/configs/springconfig/PasswordGeneratorConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/passwordGenerator/PasswordGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/passwordGenerator/PasswordGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/passwordGenerator/password/Password.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/passwordGenerator/password/Password.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/passwordGenerator/password/PasswordDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/passwordGenerator/password/PasswordDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/passwordGenerator/password/builder/PasswordBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/passwordGenerator/password/builder/PasswordBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/password.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/password.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +44,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master"
+    "git-widget-placeholder": "Merging master"
   }
 }]]></component>
   <component name="RunManager">
