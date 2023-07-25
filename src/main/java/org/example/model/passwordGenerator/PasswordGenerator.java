@@ -1,6 +1,6 @@
 package org.example.model.passwordGenerator;
 
-import org.example.model.passwordGenerator.password.Password;
+import org.example.model.passwordGenerator.passwordConfig.PasswordConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 @Component
 public class PasswordGenerator implements Generator {
     @Autowired
-    private Password password;
+    private PasswordConfig password;
     @Value("${lowerCaseLettersArr}")
     private String lowerCaseLetters;
     @Value("${upperCaseLettersArr}")

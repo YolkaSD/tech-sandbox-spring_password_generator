@@ -1,11 +1,10 @@
-package org.example.model.passwordGenerator.password;
+package org.example.model.passwordGenerator.passwordConfig;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PasswordDTO implements Password {
+public class PasswordConfigDTO implements PasswordConfig {
     @Value("${passLength}")
     private int passLength;
     @Value("${lowerCaseLetters}")
@@ -16,10 +15,8 @@ public class PasswordDTO implements Password {
     private boolean numbers;
     @Value("${specialSymbols}")
     private boolean specialSymbols;
-    @Value("${password}")
-    private String password;
 
-    private PasswordDTO() {
+    private PasswordConfigDTO() {
     }
 
     @Override
@@ -29,11 +26,6 @@ public class PasswordDTO implements Password {
                 "Is up case letters: " + upperCaseLetters + "\n" +
                 "Numbers: " + numbers + "\n" +
                 "Special symbol: " + specialSymbols + "\n";
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
     }
 
     @Override
@@ -86,8 +78,4 @@ public class PasswordDTO implements Password {
         return specialSymbols;
     }
 
-    @Override
-    public void createPassword(String password) {
-        this.password = password;
-    }
 }
