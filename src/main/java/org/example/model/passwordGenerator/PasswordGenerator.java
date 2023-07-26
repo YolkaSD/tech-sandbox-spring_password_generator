@@ -2,6 +2,7 @@ package org.example.model.passwordGenerator;
 
 import org.example.configs.passwordConfig.PasswordConfig;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -11,17 +12,26 @@ import java.util.stream.Collectors;
 
 @Component
 public class PasswordGenerator implements Generator {
-    @Autowired
     private PasswordConfig config;
-    @Value("${lowerCaseLettersArr}")
-    private String lowerCaseLetters;
-    @Value("${upperCaseLettersArr}")
-    private String upperCaseLetters;
-    @Value("${numbersArr}")
-    private String numbers;
-    @Value("${specialSymbolsArr}")
-    private String specialSymbols;
+    private char[] lowerCaseLetters;
+    private char[] upperCaseLetters;
+    private char[] numbers;
+    private char[] specialSymbols;
     private final Random random = new Random();
+
+    @Autowired
+    public PasswordGenerator(
+            PasswordConfig config,
+            @Qualifier("getLowerCaseLetters") char[] lowerCaseLetters,
+            @Qualifier("getUpperCaseLetters") char[] upperCaseLetters,
+            @Qualifier("getNumbers") char[] numbers,
+            @Qualifier("getSpecialSymbols") char[] specialSymbols) {
+        this.config = config;
+        this.lowerCaseLetters = lowerCaseLetters;
+        this.upperCaseLetters = upperCaseLetters;
+        this.numbers = numbers;
+        this.specialSymbols = specialSymbols;
+    }
 
     @Override
     public String createPassword() {
@@ -46,7 +56,7 @@ public class PasswordGenerator implements Generator {
         }
 
         while (characters.size() < config.getPassLength()) {
-            characters.add(getRandomCharacter(allCharacters.toString()));
+            characters.add(getRandomCharacter(allCharacters.toString().toCharArray()));
         }
 
         Collections.shuffle(characters);
@@ -54,11 +64,11 @@ public class PasswordGenerator implements Generator {
 
     }
 
-    private char getRandomCharacter(String characters) {
-        if (characters.length() == 0) {
+    private char getRandomCharacter(char[] characters) {
+        if (characters.length == 0) {
             return '\0';
         }
-        return characters.charAt(random.nextInt(characters.length()));
+        return characters[random.nextInt(characters.length)];
     }
 
 }
